@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitors</title>
+    <style>
+        body{margin: 0;}
+        .button{
+            display: block;
+            height: 100vh;
+            margin: 0 auto; 
+        }
+    </style>
+</head>
+<body>
+    <img class="button" src="./img/before.png" />
+
+    <script>
+        let state = false;
+
+        const button = document.querySelector('.button');
+        const imgArr = ["./img/cat.png", "./img/after.png","./img/deliver.png", './img/boyfriend.png'];
+
+        let audio = new Audio("./img/audio.mp3");
+        audio.play();
+    
+        button.onclick = function(){
+            if(!state){
+
+                let audio = new Audio("./img/ta-da.mp3");
+                audio.play();
+                const randomSrc = imgArr[Math.floor(Math.random() * imgArr.length)];
+                button.src = randomSrc;
+                state = true;
+
+            }else{
+
+                let audio = new Audio("./img/audio.mp3");
+                audio.play();
+                button.src = './img/before.png';
+                state = false;
+            }
+        }
+    </script>
+</body>
+</html>
